@@ -1,0 +1,14 @@
+/*create binary tree struct node*/
+// your code here
+struct NODE
+{
+    union 
+    {
+        struct
+        {
+            struct NODE* left;
+            struct NODE* right;
+        } internal;
+        double data;
+    } info;
+};
