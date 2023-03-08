@@ -1,0 +1,7 @@
+// Code here
+class MyClass {
+public:
+    void display() {
+            cout<<"Hello World";
+        }
+    };
