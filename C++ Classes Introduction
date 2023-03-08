@@ -1,0 +1,48 @@
+// CollegeCourse Class 
+class CollegeCourse
+{
+    //your code here
+    string CourseId;
+    char grade;
+    int credits, gp;
+    float honorPoints;
+public:
+    void set_CourseId(string c)
+    {
+        CourseId = c;
+    }
+    void set_Grade(char g)
+    {
+        grade = g;
+    }
+    void set_Credit(int cr)
+    {
+        credits = cr;
+    }
+    int calculateGradePoints(char grade)
+    {
+
+        if  (grade == 'A' || grade == 'a')
+            gp = 10;
+        else if(grade == 'B'||grade == 'b')
+            gp = 9;
+        else if(grade == 'C'||grade == 'c')
+            gp = 8;
+        else if(grade == 'D'||grade == 'd')
+            gp = 7;
+        else if(grade == 'E'||grade == 'e')
+            gp = 6;
+        else if(grade == 'F'||grade == 'f')
+            gp = 5;
+        return gp;
+    }
+     float calculateHonorPoints(int gp, int credits)
+    {
+        honorPoints = gp * credits;
+    }
+    void display()
+    {
+        cout<<gp<<" "<<honorPoints<<endl;
+    }
+
+};
