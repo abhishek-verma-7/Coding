@@ -1,0 +1,14 @@
+void insertAtIndex(int arr[], int sizeOfArray, int index, int element)
+    {
+        //Your code here
+        for(int i = 0; i < sizeOfArray; i++) {
+            if(i == index)
+            {
+                for(int j = sizeOfArray-1; j > index; j--)
+                    arr[j] = arr[j-1];
+                
+                arr[i] = element;    
+            }
+        }
+        
+    }
