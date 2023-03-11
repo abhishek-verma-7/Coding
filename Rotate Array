@@ -1,0 +1,11 @@
+ //Function to rotate an array by d elements in counter-clockwise direction. 
+    void rotateArr(int arr[], int d, int n){
+        // code here
+        d %= n;
+        //First reversing d elements from starting index.
+        reverse(arr, arr+d);
+        //Then reversing the last n-d elements.
+        reverse(arr+d, arr+n);
+        //Finally, reversing the whole array.
+        reverse(arr, arr+n);
+    }
