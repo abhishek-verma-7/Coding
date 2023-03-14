@@ -1,4 +1,4 @@
-int isPalinUtil(int N, int rev)
+int isPalinUtil(int N, int rev) // Helper function or using Tail Recursion
         {
             if(N == 0)
                 return rev;
