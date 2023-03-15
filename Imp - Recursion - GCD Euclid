@@ -1,0 +1,9 @@
+ int GCD(int a,int b)
+    {
+        //Your code here
+        if(a == 0)
+            return b;
+            
+        return GCD(b%a, a);    
+       
+    }
