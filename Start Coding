@@ -1,0 +1,7 @@
+// Function to print "Hello World"
+void printHello(){
+    
+    // Your code goes here
+    cout << "Hello World";
+    
+}
