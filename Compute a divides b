@@ -1,0 +1,13 @@
+double compute(int a, int b){
+    
+    //complete the code
+    double c = a/(double)b;
+    
+    if(a%b==0)
+    cout<<showpoint<<setprecision(2);
+    
+    else
+    cout<<noshowpoint;
+    
+    return c; 
+}
