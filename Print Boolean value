@@ -1,0 +1,10 @@
+void utility(bool a) {
+
+    // code here
+    if (a== 0)
+    cout<<"false";
+    
+    else 
+    cout<<"true";
+    
+}
