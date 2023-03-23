@@ -1,0 +1,10 @@
+void squareWall(int s) {
+    // code here
+    string str = "";
+    
+    for(int i = 0; i<s; i++)
+        str = str + "* ";
+    
+    for(int i = 0; i<s; i++)
+        cout<<str<<endl;
+}
