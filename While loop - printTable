@@ -1,0 +1,15 @@
+void printTable(int n)
+    {
+        int multiplier=10;
+        while(multiplier)
+        {
+           //Your code here
+           int i;
+           i = n*multiplier;
+           cout<<i<<" ";
+           
+           multiplier--;
+        }
+        
+        cout<<endl;
+    }  
