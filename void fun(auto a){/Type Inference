@@ -1,7 +1,0 @@
-void fun(auto a){
-    
-    //code here
-    cout<<typeid(a).name();
-    
-
-}
