@@ -1,0 +1,13 @@
+int LCM(int a, int b){
+
+    //write your code here
+    //return LCM of a and b
+    int x = max(a, b);
+    int y = a * b;
+    for(int i = x; i <= y; i++){
+        if(i % a == 0 && i % b == 0){
+            return i;
+            break;
+        }
+    }
+}
