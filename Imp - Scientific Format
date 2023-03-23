@@ -1,0 +1,7 @@
+void scientific(double a)
+{
+    //code here
+    cout<<std::scientific;
+    cout<<setprecision(4);
+    cout<<a;
+}
