@@ -1,0 +1,11 @@
+void getLine() {
+
+    string a;
+
+    // Your code here
+    // Take input of 'a' using getline
+    getline(cin, a);
+    
+
+    cout << a << endl;
+}
