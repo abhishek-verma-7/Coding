@@ -1,0 +1,19 @@
+string encode(string src)
+{     
+  //Your code here
+  string dest = "";
+  
+  for(int i = 0; i < src.size(); i++)
+  {
+      dest += src[i];
+      int cnt = 1;
+      while(i+1 < src.size() && src[i] == src[i+1])
+      {
+          cnt++;
+          i++;
+      }
+      dest += to_string(cnt);
+  }
+  return dest;
+  
+}     
