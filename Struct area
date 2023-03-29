@@ -1,0 +1,22 @@
+void find_area(int side, int le, int wd) {
+     struct area sq;
+    // assign value to side of square
+    // your code here
+    sq.sd = side;
+
+    struct area rec;
+    // assign values to length and breadth of rectangle
+    // your code here
+    rec.len = le;
+    rec.wid = wd;
+    
+    // computing area of square
+    // your code here
+    int sq_area = sq.sd * sq.sd;
+    cout<<sq_area<<" ";
+
+    // computing area of rectangle
+    // your code here
+    int rec_area = rec.len * rec.wid;
+    cout<<rec_area;
+}
