@@ -1,0 +1,11 @@
+// Function to take input of string using getline
+void getLine() {
+
+    string a;
+
+    // Your code here
+    // Take input of 'a' using getline till '@''
+    getline(cin, a, '@');
+
+    cout << a << endl;
+}
