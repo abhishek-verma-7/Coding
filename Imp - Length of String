@@ -1,0 +1,6 @@
+int lengthString(string str)
+    {
+        //Your code here
+        return str.size();
+        
+    }
