@@ -1,0 +1,35 @@
+void swap(int *x, int *y)
+    {
+        int temp = *x;
+        *x = *y;
+        *y = temp;
+    }
+    
+    //Function to sort an array using quick sort algorithm.
+    void quickSort(int arr[], int low, int high)
+    {
+        // code here
+        if(low < high)
+        {
+            int pi = partition(arr, low, high);
+            quickSort(arr, low, pi-1);
+            quickSort(arr, pi+1, high);
+        }    
+    }
+    
+    int partition (int arr[], int low, int high)
+    {
+       // Your code here
+       int pivot = arr[high], i = high;
+       
+       for(int j = high-1; j >= low; j--)
+       {
+           if(arr[j] >= pivot)
+           {
+               i--;
+               swap(&arr[i], &arr[j]);
+           }
+       }
+       swap(&arr[high], &arr[i]);
+       return i;
+    }
