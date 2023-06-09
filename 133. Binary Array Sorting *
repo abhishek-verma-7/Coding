@@ -1,0 +1,32 @@
+// A[]: input array
+    // N: input array
+    //Function to sort the binary array.
+    void binSort(int A[], int N)
+    {
+       //Your code here
+       
+       /**************
+        * No need to print the array
+        * ************/
+        int low = 0, high = N-1;
+        
+        while(low <= high) {
+            
+            if(A[low] == 0) {
+                low++;
+            }
+            
+            else if(A[high] == 1) {
+                high--;
+            }
+            
+            else {
+                int temp = A[low];
+                A[low] = A[high];
+                A[high] = temp;
+                
+                low++;
+                high--;
+            }
+        }
+    }
