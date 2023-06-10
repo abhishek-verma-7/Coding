@@ -1,0 +1,13 @@
+// Given a singly linked list of integers. The task is to display the linked list.
+vector<int> displayList(Node *head)
+{
+    //Your code here
+    vector<int> list;
+    
+    while(head)
+    {
+        list.push_back(head->data);
+        head = head->next;
+    }
+    return list;
+}
