@@ -1,0 +1,34 @@
+//Function to insert a node at the beginning of the linked list.
+    Node *insertAtBegining(Node *head, int x) {
+       // Your code here
+       struct Node *temp;
+       temp = (struct Node*)malloc(sizeof(struct Node));
+       temp->data = x;
+       temp->next = head;
+       head = temp;
+       
+       return head;
+       
+    }
+    
+    
+    //Function to insert a node at the end of the linked list.
+    Node *insertAtEnd(Node *head, int x)  {
+       // Your code here
+       struct Node *p, *temp;
+       temp = (struct Node*)malloc(sizeof(struct Node));
+       temp->data = x;
+       temp->next = NULL;
+       p = head;
+       
+       if(p) {
+           while(p->next != NULL) {
+               p = p->next;
+           }
+           p->next = temp;
+       }    
+       else {
+           head = temp;
+       }
+       return head;
+    }
