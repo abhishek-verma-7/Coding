@@ -1,0 +1,45 @@
+// Given a singly linked list of N elements. The task is to find the maximum and minimum element.
+
+Example 1:
+
+Input:
+LinkedList: 1->2->3->4->5
+Output: 5 1
+
+int maximum(Node *head)
+{
+    //Your code here
+    int max = 0;
+    
+    if(head != NULL) {
+        max = head->data;
+    }
+    
+    while(head) {
+        if(head->data > max) {
+            max = head->data;
+        }
+        head = head->next;
+    }
+    
+    return max;
+}
+
+int minimum(Node *head)
+{
+    //Your code here
+    int min = 0;
+    
+    if(head != NULL) {
+        min = head->data;
+    }
+    
+    while(head) {
+        if(head->data < min) {
+            min = head->data;
+        }
+        head = head->next;
+    }
+    
+    return min;
+}
