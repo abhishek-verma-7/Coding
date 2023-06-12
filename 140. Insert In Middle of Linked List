@@ -1,0 +1,22 @@
+Node* middle=new Node(x);
+  int c=0;
+  Node* temp=head;
+  while(temp)
+  {
+      c++;
+      temp=temp->next;
+  }
+  int m=0;
+  if(c%2==0)
+  m=c/2;
+  else
+  m=c/2+1;
+  temp = head; 
+    for (int i=0;i<m-1; i++) {
+        temp = temp->next;
+    }
+    
+   middle->next=temp->next;
+   temp->next=middle;
+   return head;
+
