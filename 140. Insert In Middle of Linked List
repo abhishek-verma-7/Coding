@@ -1,22 +1,30 @@
-Node* middle=new Node(x);
-  int c=0;
-  Node* temp=head;
-  while(temp)
-  {
-      c++;
-      temp=temp->next;
-  }
-  int m=0;
-  if(c%2==0)
-  m=c/2;
-  else
-  m=c/2+1;
-  temp = head; 
-    for (int i=0;i<m-1; i++) {
-        temp = temp->next;
-    }
-    
-   middle->next=temp->next;
-   temp->next=middle;
-   return head;
+Given a linked list of size N and a key. The task is to insert the key in the middle of the linked list.
 
+Example 1:
+
+Input:
+LinkedList = 1->2->4
+key = 3
+Output: 1 2 3 4
+
+//Function to insert a node in the middle of the linked list.
+Node* insertInMiddle(Node* head, int x)
+{
+	// Code here
+	struct Node * temp = new Node(x);
+	if(head == NULL)
+	    return temp;
+	    
+	   else {
+	       Node* slow = head;
+	       Node* fast = head->next;
+	       
+	       while(fast && fast->next) {
+	           slow = slow->next;
+	           fast = fast->next->next;
+	       }
+	       temp->next = slow->next;
+	       slow->next = temp;
+	   } 
+	   return head;
+}
