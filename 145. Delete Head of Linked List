@@ -1,0 +1,27 @@
+Given a linked list of size n, you have to delete the head of the linked list and return the new head.
+Note: Please also set the next of the original head to null.
+
+Example 1:
+Input:
+LinkedList: 1->2
+Output: 2
+
+// Function to delete the head of the linked list 
+Node * deleteHead(Node *head)
+{
+    //Your code here
+    if(head == NULL)
+    {
+        return head;
+    }
+    
+    else 
+    {
+        Node *temp = head;
+        head = head->next;
+        temp->next = NULL;
+        delete temp;
+        
+        return head;
+    }
+}
