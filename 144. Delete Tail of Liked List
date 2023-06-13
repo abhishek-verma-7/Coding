@@ -1,0 +1,25 @@
+Given a linked list of size n, you have to delete the tail (last element) in the linked list.
+
+Example 1:
+
+Input:
+LinkedList: 1->2
+Output: 1
+
+// Function to delete the tail (last element) in the linked list
+Node * deleteTail(Node *head)
+{
+    //Your Code here
+    Node *temp, *p = head;
+    
+    while(p->next->next != NULL)
+    {
+        p = p->next;
+    }
+    
+    p->next = NULL;
+    temp = p->next;
+    free(temp);
+    
+    return head;
+}
