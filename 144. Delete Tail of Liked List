@@ -19,7 +19,7 @@ Node * deleteTail(Node *head)
     
     p->next = NULL;
     temp = p->next;
-    free(temp);
+    delete temp;
     
     return head;
 }
