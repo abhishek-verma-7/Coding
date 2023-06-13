@@ -1,3 +1,19 @@
+// You are given a linked list of size n. You need to insert an element data just after the given position pos.
+The position of first element is 1. If the given position is greater than n, then don't insert anything as it is not possible.
+
+Example 1:
+
+Input:
+LinkedList: 1->2->3->4->5
+position = 6, data = 10
+Output: 1 2 3 4 5
+Explanation: The given linked list is
+1 2 3 4 5. The data 10 is to be inserted
+after position 6. However, the linked
+list only contains 5 elements so we
+cannot insert the data.
+
+Code :-
 void insertAtPosition(Node *head, int pos, int data)
 {
     //Your code here
