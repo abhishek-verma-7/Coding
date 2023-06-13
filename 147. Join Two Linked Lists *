@@ -1,0 +1,21 @@
+Given two linked lists of size n1 and n2 respectively, you have to join the head of second list to the tail of first so that we can traverse both the lists using head of 1st list.
+
+Example 1:
+Input:
+LinkedList1: 5
+LinkedList2: 1->2
+Output: 5 1 2
+
+// Function to join two linked lists
+Node * joinTheLists(Node * head1, Node * head2)
+{
+    //Your code here
+    Node *tail1 = head1;
+    
+    while(tail1->next != NULL) {
+        tail1 = tail1->next;
+    }
+    tail1->next = head2;
+    
+    return head1;
+}
