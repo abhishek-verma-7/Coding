@@ -17,8 +17,8 @@ Node * deleteTail(Node *head)
         p = p->next;
     }
     
-    p->next = NULL;
     temp = p->next;
+    p->next = NULL;
     delete temp;
     
     return head;
