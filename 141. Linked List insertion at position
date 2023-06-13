@@ -1,0 +1,38 @@
+void insertAtPosition(Node *head, int pos, int data)
+{
+    //Your code here
+    struct Node *p, *temp = new Node(data);
+    
+    p = head;
+    int n = 0;
+    while(p != NULL)
+    {
+        p = p->next;
+        n++;
+    }
+    
+    if(pos > n) {
+        return;
+    }
+    
+    else if(pos == n) {
+        p = head;
+        while(p->next != NULL) {
+            p = p->next;
+        }
+        p->next = temp;
+        temp->next = NULL;
+    }
+    
+    else {
+        int cnt = 1;
+        p = head;
+        while(cnt != pos) {
+            cnt++;
+            p = p->next;
+            
+        }
+        temp->next = p->next;
+        p->next = temp;
+    }
+}
