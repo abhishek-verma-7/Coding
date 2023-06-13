@@ -1,0 +1,48 @@
+Given a sorted (non decreasing) linked list of size n, you have to insert the given data at appropriate position in the linked list.
+
+Example 1:
+Input:
+LinkedList: 1->2->3->4->5
+data = 10
+Output: 1 2 3 4 5 10
+
+Node * insertInSorted(Node * head, int data)
+{
+    //Your code here
+    if(head == NULL)
+        return NULL;
+        
+    if(data <= head->data)
+    {
+        Node *temp = new Node(data);
+        temp->next = head;
+        head = temp;
+        return head;
+    }
+    
+    Node *temp = head;
+    while(temp->next)
+    {
+        temp = temp->next;
+    }
+    
+    if(data >= temp->data)
+    {
+        temp->next = new Node(data);
+        return head;
+    }
+    
+    Node *prev = head;
+    Node *curr = head;
+    while(data > curr->data)
+    {
+        prev =  curr;
+        curr = curr->next;
+    }
+    
+    prev->next = new Node(data);
+    prev = prev->next;
+    prev->next = curr;
+    
+    return head;
+}
