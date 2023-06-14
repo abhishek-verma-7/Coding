@@ -1,0 +1,23 @@
+Given a circular linked list of size n, you need to display the linked list. The tail of the linked list is connected to head.
+Example 1:
+Input:
+LinkedList: 1->2->3->4
+(the last and the first node are connected,
+i.e. 4 -> 1)
+Output: 1 2 3 4
+
+//Function to display the circular linked list
+vector<int> displayList(Node *head)
+{
+   //Your code here
+   vector<int> list;
+   
+   Node *p = head;
+   do 
+   {
+       list.push_back(p->data);
+       p = p->next;
+   } while(p != head);
+   
+   return list;
+}
