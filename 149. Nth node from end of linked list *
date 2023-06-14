@@ -1,0 +1,29 @@
+Given a linked list consisting of L nodes and given a number N. The task is to find the Nth node from the end of the linked list.
+
+Example 1:
+Input:
+N = 2
+LinkedList: 1->2->3->4->5->6->7->8->9
+Output: 8
+Explanation: In the first example, there
+are 9 nodes in linked list and we need
+to find 2nd node from end. 2nd node
+from end is 8.  
+
+//Function to find the data of nth node from the end of a linked list.
+    int getNthFromLast(Node *head, int n)
+    {
+           // Your code here
+           int len = 0;
+           for(Node *curr = head; curr != NULL; curr = curr->next)
+                len++;
+             
+            if(len < n)
+                return -1;
+                
+            Node *curr = head;
+            for(int i = 1; i < len-n+1; i++)
+                curr = curr->next;
+                
+            return (curr->data);    
+    }
