@@ -1,0 +1,56 @@
+
+
+Node * deleteAtPosition(Node *head,int pos)
+{
+    //Your code here
+    Node *p = head;
+    Node *temp = head;
+    int n = 0;
+    
+    do {
+        n++;
+        p = p->next;
+    } while(p != head);
+    
+    if(pos == 1)
+    {
+        p = head;
+        while(p->next != head) {
+            p = p->next;
+        }
+        temp = head;
+        head = head->next;
+        p->next = head;
+        delete temp;
+        
+        return head;
+    }
+    
+    else if(pos == n)
+    {
+        p = head;
+        while(p->next->next != head) {
+            p = p->next;
+        }
+        temp = p->next;
+        p->next = head;
+        delete temp;
+        
+        return head;
+    }
+    
+    else 
+    {
+        int count = 1;
+        p = head;
+        while(count != pos-1) {
+            count++;
+            p = p->next;
+        }
+        temp = p->next;
+        p->next = p->next->next;
+        delete temp;
+        
+        return head;
+    }
+}
