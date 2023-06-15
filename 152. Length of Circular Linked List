@@ -1,0 +1,25 @@
+Given a circular linked list of size n, you need to find the length of the list (total number of nodes). The tail of the linked list is connected to head.
+
+Example 1:
+Input:
+LinkedList: 1->2->3->4->5
+(the first and the last node is connected,
+i.e 5 --> 1)
+Output: 5
+
+//Function to find the length of the Circular Linked list 
+int getLength(Node * head)
+{
+    //Your code here
+    if(head == NULL)
+        return NULL;
+    
+    Node *p = head;
+    int count = 0;
+    
+    do {
+        count++;
+        p = p->next;
+    } while(p != head);
+    return count;
+}
