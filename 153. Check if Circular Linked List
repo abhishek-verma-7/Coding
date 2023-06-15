@@ -17,11 +17,11 @@ bool isCircular(Node *head)
         return true;
         
     Node *p = head;
-    do {
+    while(p->next != head) {
         p = p->next;
         
         if(p == NULL)
             return false;
-    } while(p->next != head);
+    } 
     return true;
 }
