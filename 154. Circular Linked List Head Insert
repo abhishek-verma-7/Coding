@@ -1,0 +1,26 @@
+Given a circular linked list of size N, you need to insert an element data before the head and make it the new head. The tail of the linked list is connected to head.
+Example 1:
+Input:
+LinkedList: 1->2->3->4
+(the first and last node is connected,
+i.e. 4 --> 1)
+data = 10
+Output: 10 1 2 3 4
+
+// Function to insert an element data before the head and make it the new head
+Node *insertInHead(Node * head, int data)
+{
+    //Your code here
+    Node *temp = new Node(data);
+    Node *p = head;
+    
+    while(p->next != head) {
+        p = p->next;
+    }
+    
+    p->next = temp;
+    temp->next = head;
+    head = temp;
+    
+    return head;
+}
