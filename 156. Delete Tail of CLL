@@ -1,0 +1,26 @@
+Given a circular linked list of size n, you have to delete the tail (last element) in the linked list.
+In a circular linked list, the tail is connect to the head using the next pointer.
+
+Example 1:
+Input:
+LinkedList: 1->2
+(the first and last node are connected,
+i.e. 2 --> 1)
+Output: 1
+
+// Function to delete the tail (last element) in the Circular linked list
+Node * deleteTail(Node * head)
+{
+    //Your code here
+    Node *p = head;
+    Node *temp;
+    
+    while(p->next->next != head) {
+        p = p->next;
+    }
+    temp = p->next;
+    p->next = head;
+    delete temp;
+    
+    return head;
+}
