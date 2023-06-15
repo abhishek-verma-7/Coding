@@ -1,0 +1,50 @@
+You are given a circular linked list of size N. You need to insert an element data just after the given position pos.
+The position of first element is 1. If the given position is greater than N, then don't insert anything as it is not possible.
+As the given linked list is circular, it means that the tail is connected to the head of the list.
+
+Example 1:
+Input:
+LinkedList: 1->2->3->4->5
+(the first and last node is connected,
+i.e. 5 --> 1)
+position = 6, element = 10
+Output: 1 2 3 4 5 
+
+// Function to insert an element data just after the given position pos in a Circular Linked List
+void insertAtPosition(Node *head, int pos, int data)
+{
+   //Your code here
+   Node *temp = new Node(data);
+   Node *p = head;
+   
+   int n = 0;
+   do {
+       n++;
+       p = p->next;
+   } while(p != head);
+   
+   if(pos > n)
+      return;
+      
+    else if(pos == n)
+    {
+        p = head;
+        while(p->next != head) {
+            p = p->next;
+        }
+        p->next = temp;
+        temp->next = head;
+    }
+    
+    else 
+    {
+        int curr = 1;
+        p = head;
+        while(curr != pos) {
+            curr++;
+            p = p->next;
+        }
+        temp->next = p->next;
+        p->next = temp;
+    }
+}
