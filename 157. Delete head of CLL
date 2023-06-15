@@ -1,0 +1,31 @@
+Given a circular linked list of size n, you have to delete the head of the linked list and return the new head.
+In the circular linked list the tail of the list is connected to the head using the next pointer.
+Note: Please also set the next of the original head to null.
+
+Example 1:
+Input:
+LinkedList: 1->2
+(the first and last node are connected,
+i.e. 2 --> 1)
+Output: 2
+
+// Function to delete the head of the circular linked list and return the new head
+Node * deleteHead(Node *head)
+{
+   //Your code here
+   Node *curr = head;
+   Node *temp; 
+  
+   while(curr->next != head) {
+       curr = curr->next;
+   }
+   
+   temp = head;
+   head = head->next;
+   temp->next = NULL;
+   
+   curr->next = head;
+   delete temp;
+   
+   return head;
+}
