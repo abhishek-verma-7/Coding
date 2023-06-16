@@ -1,0 +1,37 @@
+Given a doubly linked list of size n, you need to insert an element data after the tail.
+
+Example 1:
+Input:
+LinkedList: 1<->2<->3<->4<->5
+data = 8
+Output:
+1 2 3 4 5 8
+8 5 4 3 2 1
+
+// Function to insert an element data after the tail in DLL
+Node *insertInTail(Node * head, int data)
+{
+   //Your code here
+   Node *temp = new Node(data);
+   Node *p = head;
+   
+   if(p) 
+   {
+       while(p->next != NULL) {
+           p = p->next;
+       }
+       p->next = temp;
+       temp->prev = p;
+       temp->next = NULL;
+       
+       return head;
+   }
+   
+   else
+   {
+       head = temp;
+       temp->next = NULL;
+       
+       return head;
+   }
+}
