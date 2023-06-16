@@ -1,0 +1,20 @@
+Given a doubly linked list of n elements. The task is to display the linked list.
+
+Example 1:
+Input:
+LinkedList: 1<->2<->3<->4<->5
+Output:
+1 2 3 4 5
+5 4 3 2 1
+
+// Function to display the doubly linked list
+vector<int> displayList(Node *head)
+{
+    vector<int> list;
+    Node *p = head;
+    while(p != NULL) {
+        list.push_back(p->data);
+        p = p->next;
+    }
+    return list;
+}
