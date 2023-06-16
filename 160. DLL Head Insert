@@ -1,0 +1,23 @@
+Given a doubly linked list of size n, you need to insert an element data before the head and make it the new head.
+
+Example 1:
+Input:
+LinkedList: 1<->2<->3<->4<->5
+data = 8
+Output:
+8 1 2 3 4 5
+5 4 3 2 1 8
+
+
+// Function to insert an element data before the head and make it the new head in the DLL
+Node *insertInHead(Node * head, int data)
+{
+    //Your code here
+    Node *temp = new Node(data);
+    
+    temp->next = head;
+    head->prev = temp;
+    head = temp;
+        
+    return head;
+}
