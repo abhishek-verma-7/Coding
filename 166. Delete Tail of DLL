@@ -1,0 +1,25 @@
+Given a doubly linked list of size n, you have to delete the tail (last element) in the linked list.
+
+Example 1:
+Input:
+LinkedList: 1<-->2
+Output:
+1
+1
+
+// Function to delete the tail (last element) in the doubly linked list
+Node *deleteTail(Node * head)
+{
+   //Your code here
+   Node *temp = head;
+   while(temp->next != NULL) {
+       temp = temp->next;
+   }
+   
+   temp->prev->next = NULL;
+   temp->prev = NULL;
+   
+   delete temp;
+   
+   return head;
+}
