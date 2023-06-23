@@ -1,3 +1,16 @@
+Given a circular doubly linked list consisting of N nodes, the task is to print the elements from head to tail, then from tail to head in two separate lines.
+The tail of a circular doubly linked list is connected to head via its next pointer, and the previous pointer of head is connected to the tail.
+
+Example 1:
+Input:
+LinkedList: 1<->2
+(the last and first node are connected,
+i.e. 2<->1)
+Output:
+1 2
+2 1
+
+// Function to print the elements from head to tail, then from tail to head in two separate lines of Circular DLL. 
 vector<int> displayList(Node *head)
 {
     vector<int> list;
