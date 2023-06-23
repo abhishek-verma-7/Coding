@@ -1,0 +1,22 @@
+Given a doubly linked list of size n, you have to delete the head of the linked list and return the new head.
+Note: Please set the previous of new head to null, and set the next of old head to null, and then delete the old head.
+
+Example 1:
+Input:
+LinkedList: 1<-->2
+Output:
+2
+2
+
+// Function to delete the head of the doubly linked list and return the new head
+Node *deleteHead(Node * head)
+{
+   //Your code here
+   Node *temp = head;
+   head = head->next;
+   head->prev = NULL;
+   temp->next = NULL;
+   delete temp;
+   
+   return head;
+}
