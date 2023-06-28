@@ -1,0 +1,25 @@
+Given a doubly linked list, the task is to check if it is circular or not.
+
+Example 1:
+Input:
+LinkedList: 2<->3<->4<->5<->6
+Output: 0
+
+// FUnction to check if given DLL is circular or not
+bool isCircular(Node * head)
+    {
+       //Your code here
+       if(head->prev==NULL)
+        return false;
+        
+        Node *temp=head->prev;
+        if(temp->next==NULL)
+        return false;
+        
+        
+        if(temp->next==head &&head->prev==temp)
+        return true;
+        
+        
+        return false;                                                                                                                                                                                                   
+    }
