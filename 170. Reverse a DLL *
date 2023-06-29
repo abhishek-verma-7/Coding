@@ -1,0 +1,25 @@
+Given a doubly linked list of n elements. The task is to reverse the doubly linked list.
+
+Example 1:
+Input:
+LinkedList: 3 <--> 4 <--> 5
+Output: 5 4 3
+
+// Function to reverse the doubly linked list.
+Node* reverseDLL(Node * head)
+{
+    //Your code here
+    if(head == NULL || head->next == NULL)
+        return head;
+        
+    Node *past = NULL, *curr = head;
+    
+    while(curr != NULL) {
+        past = curr->prev;
+        curr->prev = curr->next;
+        curr->next = past;
+        
+        curr = curr->prev;
+    }
+    return past->prev;
+}
