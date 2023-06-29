@@ -1,0 +1,34 @@
+Given two circular doubly linked lists of sizes n1 and n2 respectively, the task is check if the corresponding elements of the lists are same or not.
+The tail of a circular doubly linked list is connected to head via its next pointer, and the previous pointer of head is connected to the tail.
+
+Example 1:
+Input:
+LinkedList1: 1
+LinkedList2: 1
+Output: 1
+
+
+// Function to check if the corresponding elements of the Circualr DLL are same or not
+bool compareCLL(Node* head1, Node* head2) {
+    // Your code here
+        int n1 = getLength(head1); // Functin def is given in code
+        int n2 = getLength(head2);
+        
+        if(n1 != n2) 
+            return 0;
+            
+        if(n1 == 1)
+            return head1->data == head2->data;
+            
+        Node *temp = head1;
+        Node *temp2 = head2;
+        
+        while(temp->next != head1) {
+            if(temp->data != temp2->data)
+                return 0;
+                
+            temp = temp->next;
+            temp2 = temp2->next;
+        }
+        return 1;
+    }
