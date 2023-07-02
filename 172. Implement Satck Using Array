@@ -1,0 +1,39 @@
+//Function to push data at the top of stack
+void push(int data)
+{
+    //Your code here
+    if(top >= stackMax-1)
+        cout<<"Stack Full"<<endl;
+        
+    else {
+        top = top+1;
+        stack[top] = data;
+    }    
+    
+    
+}
+//Function to pop the topmost data
+void pop()
+{
+    //Your code here
+    if(top <= -1)
+        cout<<"Stack Empty"<<endl;
+    
+    else {
+        stack[top] = -1;
+        top = top-1;
+    }    
+}
+//Function to display the stack from index 0 
+void display()
+{
+    //Your code here
+    if(top <= -1)
+        cout<<"-1";
+        
+    else {
+    for(int i = 0; i <= top; i++)
+        cout<<stack[i]<<" ";
+    }    
+    cout<<endl;
+}
