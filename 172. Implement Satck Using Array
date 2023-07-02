@@ -1,3 +1,26 @@
+Implement stack using array
+
+You are given q queries. The queries can be of 3 types:
+                Query Type:               Operation
+                  1 x:               Push x
+                  2:               Pop the top element
+                  3:               display stack from bottom to top in a single line.
+
+The stack here is implemented by an array stack[], and maxSize of the stack is 100000. If a push operation is performed beyond this size, you must print "Stack Full"(without quotes). Similarly, an unsuccessful pop operation should print "Stack Empty"(without quotes).  If a display operation is performed on an empty stack print -1.
+
+Example 1:
+
+Input: q[] = {(1, 4), 3, 2, 2, 3}
+Output: 4
+        Stack Empty
+        -1
+Explanation: push() --> 4
+display() --> 4 gets printed
+pop() --> Pop 4
+pop() --> stack is empty so print Stack 
+          Empty
+display() --> stack is empty so print -1
+
 //Function to push data at the top of stack
 void push(int data)
 {
