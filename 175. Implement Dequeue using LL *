@@ -1,0 +1,122 @@
+You are given a dequeue and q queries. The queries can be of 4 types:
+
+ir x: Use insertRear to insert data x in dequeue.
+if x: Use insertFront to insert data x in dequeue.
+df: Use deleteFront to delete the front of dequeue. If dequeue is empty then don't do anything.
+dr: Use deleteRear to delete the rear of dequeue. If dequeue is empty then don't do anything.
+Example 1:
+Input: q = 4, queries[] = {(ir, 5), 
+    (if, 7), (df), (if, 22)}
+Output: 22
+        5
+Explanation: Here q = 4. First we insert 5 
+at the back. Now we insert 7 in the front. 
+The dequeue is now {7, 5}. Now we remove 
+the front, so dequeue is now {5}. Now, we 
+insert 22 in the front. The dequeue is now
+{22, 5}. So the front is 22 and the rear 
+is 5.
+
+
+void Deque::insertFront(int data) {
+    // Your code here
+    Node* newNode = Node::getnode(data);
+    // If true then new element cannot be added
+    // and it is an 'Overflow' condition
+    if (newNode == NULL)
+        cout << "OverFlow\n";
+    else {
+        // If deque is empty
+        if (front == NULL) rear = front = newNode;
+
+        // Inserts node at the front end
+        else {
+            newNode->next = front;
+            front->prev = newNode;
+            front = newNode;
+        }
+
+        // Increments count of elements by 1
+        Size++;
+    }    
+}
+
+// Function to insert an element
+// at the rear end
+void Deque::insertRear(int data) {
+    // Your code here
+     Node* newNode = Node::getnode(data);
+    // If true then new element cannot be added
+    // and it is an 'Overflow' condition
+    if (newNode == NULL)
+        cout << "OverFlow\n";
+    else {
+        // If deque is empty
+        if (rear == NULL) front = rear = newNode;
+
+        // Inserts node at the rear end
+        else {
+            newNode->prev = rear;
+            rear->next = newNode;
+            rear = newNode;
+        }
+
+        Size++;
+    }    
+}
+
+// Function to delete the element
+// from the front end
+void Deque::deleteFront() {
+    // Your code here
+    // If deque is empty then
+    // 'Underflow' condition
+    if (isEmpty()) {
+
+    }
+
+    // Deletes the node from the front end and makes
+    // the adjustment in the links
+    else {
+        Node* temp = front;
+        front = front->next;
+
+        // If only one element was present
+        if (front == NULL)
+            rear = NULL;
+        else
+            front->prev = NULL;
+        free(temp);
+
+        // Decrements count of elements by 1
+        Size--;
+    }
+}
+
+// Function to delete the element
+// from the rear end
+void Deque::deleteRear() {
+    // Your code here
+    // If deque is empty then
+    // 'Underflow' condition
+    if (isEmpty()) {
+
+    }
+
+    // Deletes the node from the rear end and makes
+    // the adjustment in the links
+    else {
+        Node* temp = rear;
+        rear = rear->prev;
+
+        // If only one element was present
+        if (rear == NULL)
+            front = NULL;
+        else
+            rear->next = NULL;
+        free(temp);
+
+        // Decrements count of elements by 1
+        Size--;
+    }
+}
