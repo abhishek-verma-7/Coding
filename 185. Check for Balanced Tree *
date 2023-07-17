@@ -26,12 +26,15 @@ Explanation: The max difference in height
 of left subtree and right subtree is 2,
 which is greater than 1. Hence unbalanced
 
-//Function to check whether a binary tree is balanced or not.
+class Solution{
+    int height; // private variable
+    public:
+    //Function to check whether a binary tree is balanced or not.
     bool isBalanced(Node *root)
     {
         //  Your Code here
         if(root == NULL) {
-            height = 0; // height variable declared as private member in class
+            height = 0;
             return true;
         }
         
@@ -50,3 +53,4 @@ which is greater than 1. Hence unbalanced
         }
         return false;
     }
+};
