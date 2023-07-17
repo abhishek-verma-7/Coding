@@ -36,9 +36,6 @@ maximum number of nodes at any level
         {
             int size = q.size();
             
-            if(size > max_width)
-                max_width = size;
-                
             for(int  i = 0; i < size; i++)
             {
                 Node *temp = q.front();
@@ -50,6 +47,7 @@ maximum number of nodes at any level
                 if(temp->right != NULL)
                     q.push(temp->right);
             }
+            max_width = max(size, max_width);
         }
         return max_width;
     }
