@@ -1,0 +1,41 @@
+Given a Binary Tree of N nodes. Find the vertical width of the tree.
+Example 1:
+Input:
+          1
+       /    \
+      2      3
+     / \    / \
+    4   5  6   7
+            \   \
+             8   9
+Output: 6
+Explanation: The width of a binary tree is
+the number of vertical paths in that tree.
+
+The above tree contains 6 vertical lines.
+
+//Function to get the width of the binary tree.
+void width(Node *root, int &l, int &r, int hd)
+{
+    if(root == NULL)
+        return;
+        
+    width(root->left, l, r, hd-1); // decrementing the hd by 1 by for left subtrees
+    l = min(l, hd);
+    width(root->right, l, r, hd+1); // increase the hd by 1 for right subtrees
+    r = max(r, hd);
+}
+
+//Function to find the vertical width of a Binary Tree.
+int verticalWidth(Node* root)
+{
+    // Code here
+    if(root == NULL)
+        return 0;
+        
+    int l = INT_MAX;
+    int r = INT_MIN;
+    int hd = 0; // hd = horizontal distance from root node
+    width(root, l, r, hd);
+    return(r-l+1);
+}
