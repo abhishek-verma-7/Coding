@@ -1,0 +1,42 @@
+Given a Binary Search Tree of size N, find its level-order traversal.
+Example 1:
+Input :
+N = 5
+       3
+      / \  
+     1   4 
+      \   \   
+       2   5
+
+Output: 3 1 4 2 5
+
+// Program
+vector <int> levelOrder(Node *root) 
+{ 
+    vector <int> res;
+    // Base Case 
+    if (root == NULL)  return res; 
+  
+    // Create an empty queue for level order tarversal 
+    queue<Node *> q; 
+  
+    // Enqueue Root and initialize height 
+    q.push(root); 
+  
+    while (q.empty() == false) 
+    { 
+        // Print front of queue and remove it from queue 
+        Node *node = q.front(); 
+        res.push_back (node->data);
+        q.pop(); 
+  
+        /* Enqueue left child */
+        if (node->left != NULL) 
+            q.push(node->left); 
+  
+        /*Enqueue right child */
+        if (node->right != NULL) 
+            q.push(node->right); 
+    } 
+    return res;
+} 
