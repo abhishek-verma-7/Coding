@@ -19,9 +19,7 @@ void preOrderUtil(struct Node* node, vector <int> &res)
 		
 	res.push_back (node->data);
 	preOrderUtil(node->left, res); 
-	preOrderUtil(node->right, res); 
-
-	
+	preOrderUtil(node->right, res); 	
 }
 
 vector <int> preOrder (Node* rt)
