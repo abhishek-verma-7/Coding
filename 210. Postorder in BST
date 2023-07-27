@@ -1,0 +1,29 @@
+Given a Binary Search Tree of size N, find its postorder traversal.
+Example 1:
+Input :
+N = 5
+       3
+      / \  
+     1   4 
+      \   \   
+       2   5
+
+Output: 2 1 5 4 3
+
+// Program
+void postorderUtil (Node *root, vector <int> &res)
+{
+    if (root == NULL)
+        return;
+    
+    postorderUtil(root->left, res);
+    postorderUtil(root->right, res);
+    res.push_back (root->data);
+}
+
+vector <int> postOrder(struct Node *root)
+{
+    vector <int> res;
+    postorderUtil (root, res);
+    return res;
+}
