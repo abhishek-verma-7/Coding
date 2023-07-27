@@ -1,0 +1,73 @@
+Given a Binary Search Tree and a node value X. Delete the node with the given value X from the BST. 
+If no node with value x exists, then do not make any change. 
+Example 1:
+Input:
+      2
+    /   \
+   1     3
+X = 12
+Output: 1 2 3
+Explanation: In the given input there
+is no node with value 12 , so the tree
+will remain same.
+
+// Program
+Node *getSuccessor(Node *curr)
+{
+    curr = curr->right;
+    
+    while(curr != NULL && curr->left!= NULL)
+        curr = curr->left;
+    
+    return curr;    
+}
+
+// Function to delete a node from BST.
+Node *deleteNode(Node *root, int X) {
+    // your code goes here
+    
+    // base case
+    if(root == NULL)
+        return root;
+        
+    // if given value is less than data at current node, we call function
+    // recursively to delete in left subtree.    
+    if(X < root->data)
+        root->left = deleteNode(root->left, X);
+        
+    // else if given value is more than data at current node, we call function
+    // recursively to delete in right subtree.    
+    else if(X > root->data) 
+        root->right = deleteNode(root->right, X);
+    
+    // else we need to delete the current node.    
+    else {
+            // if node is with only one child or no child.
+            if(root->left == NULL)
+            {
+                Node *temp = root->right;
+                delete root;
+                return temp;
+            }
+            else if(root->right == NULL)
+            {
+                Node *temp = root->left;
+                delete root;
+                return temp;
+            }
+             
+            // if node has two children, getting the inorder successor
+            //(smallest in the right subtree). 
+            else 
+            {
+                Node *succ = getSuccessor(root);
+                
+                // copying the inorder successor's data to this node.
+                root->data = succ->data;
+                
+                // deleting the inorder successor.
+                root->right = deleteNode(root->right, succ->data);
+            }
+        }
+    return root;
+}
