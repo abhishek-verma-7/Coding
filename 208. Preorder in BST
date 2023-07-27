@@ -1,0 +1,32 @@
+Given a Binary Search Tree of size N, find its preorder traversal.
+Example 1:
+Input :
+N = 5
+       3
+      / \  
+     1   4 
+      \   \   
+       2   5
+
+Output: 3 1 2 4 5
+
+
+//Program
+void preOrderUtil(struct Node* node, vector <int> &res) 
+{
+	if (node == NULL) 
+		return; 
+		
+	res.push_back (node->data);
+	preOrderUtil(node->left, res); 
+	preOrderUtil(node->right, res); 
+
+	
+}
+
+vector <int> preOrder (Node* rt)
+{
+    vector <int> res;
+    preOrderUtil (rt, res);
+    return res;
+}
