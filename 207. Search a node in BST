@@ -1,0 +1,34 @@
+Given a Binary Search Tree and a node value X, find if the node with value X is present in the BST or not.
+Example 1:
+
+Input:         2
+                \
+                 81 
+               /    \ 
+             42      87 
+              \       \ 
+               66      90 
+              / 
+            45
+X = 87
+Output: 1
+Explanation: As 87 is present in the
+given nodes , so the output will be
+1.
+
+// Function to search a node in BST.
+bool search(Node* root, int x) {
+    // Your code here
+    while(root != NULL) 
+    {
+        if(root->data == x)
+            return true;
+            
+        if(x < root->data)
+            root = root->left;
+            
+        else
+            root = root->right;
+    }
+    return false;
+}
