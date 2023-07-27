@@ -1,0 +1,29 @@
+Given a Binary Search Tree of size N, find its inorder traversal.
+Example 1:
+Input :
+N = 5
+       3
+      / \  
+     1   4 
+      \   \   
+       2   5
+
+Output: 1 2 3 4 5 
+
+// Program
+void inorderUtil (Node *root, vector <int> &res)
+{
+    if (root == NULL)
+        return;
+    
+    inorderUtil(root->left, res);
+    res.push_back (root->data);
+    inorderUtil(root->right, res);
+}
+
+vector <int> inOrder(struct Node *root)
+{
+    vector <int> res;
+    inorderUtil (root, res);
+    return res;
+}
