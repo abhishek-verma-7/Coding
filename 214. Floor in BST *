@@ -12,23 +12,30 @@ Output: 2
 Explanation: Floor of 3 in the given BST
 is 2
 
+// Function to find the floor of given number.
+int floorUtil(Node* root, int key) {
+    if (!root) return INT_MAX;
+
+    // if data at current node is equal to given number, we return it.
+    if (root->data == key) return root->data;
+
+    // if data at current node is greater than given number, we call
+    // the function recursively for left subtree.
+    if (root->data > key) return floorUtil(root->left, key);
+
+    // else data at current node is smaller than given number so we call
+    // the function recursively for right subtree.
+    int floorValue = floorUtil(root->right, key);
+
+    return (floorValue <= key) ? floorValue : root->data;
+}
+
 // Function to return the floor of given number in BST.
 int floor(Node* root, int key) {
-    // Your code goes here
-    int res = -1;
-    
-    while(root != NULL)
-    {
-        if(root->data == key)
-            return root->data;
-        
-        if(key < root->data)
-            root = root->left;
-            
-        else {
-            res = max(res, root->data);
-            root = root->right;
-        }
-    }
-    return res;
+    int ans = floorUtil(root, key);
+
+    // returning floor of given number or -1 if no such element exists.
+    if (ans == INT_MAX) return -1;
+
+    return ans;
 }
