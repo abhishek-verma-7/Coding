@@ -1,0 +1,39 @@
+Given a BST and a number X, find Ceil of X.
+Note: Ceil(X) is a number that is either equal to X or is immediately greater than X.
+If Ceil could not be found, return -1.
+Example 1:
+Input:
+      5
+    /   \
+   1     7
+    \
+     2 
+      \
+       3
+X = 3
+Output: 3
+Explanation: We find 3 in BST, so ceil
+of 3 is 3.
+
+// Function to return the ceil of given number in BST.
+int findCeil(Node* root, int input) {
+    // base case
+    if (root == NULL) 
+        return -1;
+
+    // if data at current node is equal to given number, we return it.
+    if (root->data == input) 
+        return root->data;
+
+    // if data at current node is smaller than given number, we call
+    // the function recursively for right subtree.
+    if (root->data < input) 
+        return findCeil(root->right, input);
+
+    // else data at current node is greater than given number so we call
+    // the function recursively for left subtree.
+    int cceil = findCeil(root->left, input);
+
+    // returning ceil of given number.
+    return (cceil >= input) ? cceil : root->data;
+}
