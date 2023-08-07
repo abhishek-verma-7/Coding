@@ -13,35 +13,34 @@ then 3. After this 2 to 4, thus bfs will be
 
 // Function to return Breadth First Traversal of given graph.
     vector<int> bfsOfGraph(int V, vector<int> adj[]) {
-        // boolean list to mark all the vertices as not visited.
-        vector<bool> vis(V, false);
-        int s = 0;
-
-        // initially we mark first vertex as visited(true).
-        vis[s] = true;
-
+        // Function to return Breadth First Traversal of given graph.
+    vector<int> bfsOfGraph(int V, vector<int> adj[]) {
+        // Code here
         vector<int> res;
-
-        // creating a queue for BFS and pushing first vertex in queue.
+        int s = 0;
+        bool visited[V];
+        
+        for(int i = 0; i < V; i++)
+            visited[i] = false;
+            
         queue<int> q;
+        visited[s] = true;
         q.push(s);
-
-        while (!q.empty()) {
-            // adding front element in output list and popping it from queue.
-            int t = q.front();
-            res.push_back(t);
+        
+        while(q.empty() == false)
+        {
+            int u = q.front();
             q.pop();
-
-            // traversing over all the connected components of front element.
-            for (int v : adj[t]) {
-                // if they aren't visited, we mark them visited and add to
-                // queue.
-                if (!vis[v]) {
-                    vis[v] = true;
+            res.push_back(u);
+            
+            for(int v : adj[u])
+            {
+                if(visited[v] == false)
+                {
+                    visited[v] = true;
                     q.push(v);
                 }
             }
         }
-        // returning the output list.
         return res;
     }
