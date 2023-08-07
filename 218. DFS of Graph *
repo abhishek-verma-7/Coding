@@ -1,0 +1,43 @@
+You are given a connected undirected graph. Perform a Depth First Traversal of the graph.
+Note: Use a recursive approach to find the DFS traversal of the graph starting from the 0th vertex from left to right according to the graph.
+Example 1:
+Input: V = 5 , adj = [[2,3,1] , [0], [0,4], [0], [2]]
+
+Output: 0 2 4 3 1
+Explanation: 
+0 is connected to 2, 3, 1.
+1 is connected to 0.
+2 is connected to 0 and 4.
+3 is connected to 0.
+4 is connected to 2.
+so starting from 0, it will go to 2 then 4,
+and then 3 and 1.
+Thus dfs will be 0 2 4 3 1.
+
+// Function to return a list containing the DFS traversal of the graph.
+    void dfsOfGraphRec(vector<int> adj[], int s, bool visited[], vector<int> &res)
+    {
+        visited[s] = true;
+        res.push_back(s);
+        
+        for(int u : adj[s])
+        {
+            if(visited[u] == false)
+                dfsOfGraphRec(adj, u, visited, res);
+        }
+    }
+    
+    
+    // Function to return a list containing the DFS traversal of the graph.
+    vector<int> dfsOfGraph(int V, vector<int> adj[]) {
+        // Code here
+        vector<int> res;
+        
+        bool visited[V];
+        for(int i = 0; i < V; i++)
+            visited[i] = false;
+        
+        dfsOfGraphRec(adj, 0, visited, res);
+        
+        return res;
+    }
