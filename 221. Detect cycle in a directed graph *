@@ -1,0 +1,38 @@
+Given a Directed Graph with V vertices (Numbered from 0 to V-1) and E edges, check whether it contains any cycle or not
+Example 1:
+Input:
+Output: 1
+Explanation: 3 -> 3 is a cycle
+bool checkForCycle(vector<int> adj[], int s, bool visited[], bool recSt[])
+    {
+        visited[s] = true;
+        recSt[s] = true;
+        
+        for(auto u : adj[s])
+        {
+            if(visited[u] == false && checkForCycle(adj, u, visited, recSt))
+                return true;
+                
+            else if(recSt[u] == true)
+                return true;
+        }
+        recSt[s] = false;
+        return false;
+    }
+   
+    // Function to detect cycle in a directed graph.
+    bool isCyclic(int V, vector<int> adj[]) {
+        // code here
+        bool visited[V] = {false};
+        bool recSt[V] = {false};
+        
+        for(int i = 0; i < V; i++)
+        {
+            if(visited[i] == false) 
+            {
+                if(checkForCycle(adj, i, visited, recSt) == true)
+                    return true;
+            }
+        }
+        return false;
+    }
