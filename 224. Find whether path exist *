@@ -1,0 +1,82 @@
+Given a grid of size n*n filled with 0, 1, 2, 3. Check whether there is a path possible from the source to destination.
+You can traverse up, down, right and left.
+The description of cells is as follows:
+
+A value of cell 1 means Source.
+A value of cell 2 means Destination.
+A value of cell 3 means Blank cell.
+A value of cell 0 means Wall.
+Note: There are only a single source and a single destination.
+ 
+Example 1:
+Input: grid = {{3,0,3,0,0},{3,0,0,0,3}
+,{3,3,3,3,3},{0,2,3,0,0},{3,0,0,1,3}}
+Output: 0
+Explanation: The grid is-
+3 0 3 0 0 
+3 0 0 0 3 
+3 3 3 3 3 
+0 2 3 0 0 
+3 0 0 1 3 
+There is no path to reach at (3,1) i,e at 
+destination from (4,3) i,e source.
+
+vector<int>dx = {-1,0,1,0};
+    vector<int>dy = {0,-1,0,1};  
+    
+    //Function to check whether the cell is within the matrix bounds.
+    bool isValid(int x, int y, int n, int m){
+        return (x >= 0 and x < n and y >=0 and y < m);
+    }
+    
+    //Function to find whether a path exists from the source to destination. 
+    bool is_Possible(vector<vector<int>>& grid) 
+    {
+        int n = grid.size();
+        int m = grid[0].size();
+        
+        //creating BFS queue 
+        queue<pair<int, int>>q;
+        
+        //traversing all the cells of the matrix.
+        for(int i = 0; i < n; i++)
+        {
+        	for(int j = 0; j < m; j++)
+        	{
+        	    //if there exists a cell in the matrix such that its 
+                //value is 1 then we push it to queue.
+        		if(grid[i][j] == 1){
+        			q.push({i,j});
+        		}
+        	}
+        }
+        
+        while(!q.empty())
+        {
+        	int x = q.front().first;
+        	int y = q.front().second;
+        	q.pop();
+        	for(int i = 0; i < 4; i++)
+        	{
+        		int n_x = x + dx[i];
+        		int n_y = y + dy[i];
+        		
+        		//if the cell is within matrix bounds.
+        		if(isValid(n_x, n_y, n, m))
+        		{
+        		    //if the value of current cell is 2, we return true.
+        			if(grid[n_x][n_y] == 2)
+        				return true;
+        				
+        			//if the value of current cell is 3, we replace the value
+        			//with 1 and push the cell into the queue.
+        			if(grid[n_x][n_y] == 3){
+        				grid[n_x][n_y] = 1;
+        				q.push({n_x, n_y});
+        			}
+        		}
+        	}
+        }
+        return false;
+
+    }
