@@ -1,0 +1,51 @@
+Given a Undirected Graph with V vertices and E edges, Find the level of node X. if X does not exist in the graph then print -1.
+Note: Traverse the graph starting from vertex 0.
+
+Example 1:
+Input:
+X = 4
+Output:
+2
+Explanation:
+
+We can clearly see that Node 4 lies at Level 2.
+
+//Function to find the level of node X.
+	int nodeLevel(int V, vector<int> adj[], int X) 
+	{
+	    // code here
+	    if(X == 0)
+	        return 0;
+	        
+	    queue<int> q;
+	    q.push(0);
+	    
+	    vector<bool> vis(V, false);
+	    vis[0] = true;
+	    
+	    int level = 0;
+	    
+	    while(!q.empty())
+	    {
+	        int n = q.size();
+	        
+	        for(int i = 0; i < n; i++)
+	        {
+	            int curr = q.front();
+	            q.pop();
+	            
+	            if(curr == X)
+	                return level;
+	                
+	            for(auto child : adj[curr])
+	            {
+	                if(!vis[child]) {
+	                    vis[child] = true;
+	                    q.push(child);
+	                }
+	            }
+	        }
+	        level++;
+	    }
+	    return -1;
+	}
