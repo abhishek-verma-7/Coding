@@ -1,0 +1,81 @@
+Given a grid of dimension nxm where each cell in the grid can have values 0, 1 or 2 which has the following meaning:
+0 : Empty cell
+1 : Cells have fresh oranges
+2 : Cells have rotten oranges
+
+We have to determine what is the minimum time required to rot all oranges. A rotten orange at index [i,j] can rot
+other fresh orange at indexes [i-1,j], [i+1,j], [i,j-1], [i,j+1] (up, down, left and right) in unit time. 
+
+Example 1:
+
+Input: grid = {{0,1,2},{0,1,2},{2,1,1}}
+Output: 1
+Explanation: The grid is-
+0 1 2
+0 1 2
+2 1 1
+Oranges at positions (0,2), (1,2), (2,0)
+will rot oranges at (0,1), (1,1), (2,2) and 
+(2,1) in unit time.
+    
+    int dx[4] = {-1,1,0,0};
+    int dy[4] = {0,0,1,-1};
+    
+    //Function to find minimum time required to rot all oranges. 
+    int orangesRotting(vector<vector<int>>& grid) {
+        // Code here
+        int n = grid.size();
+        int m = grid[0].size();
+        
+        queue<pair<int,int>> q;
+        int count = 0;
+        
+        for(int i = 0; i < n; i++)
+        {
+            for(int j = 0; j < m; j++)
+            {
+                if(grid[i][j] == 1)
+                    count++;
+                    
+                else if(grid[i][j] == 2)
+                    q.push({i,j});
+            }
+        }
+        
+        int time = 0;
+        
+        while(!q.empty())
+        {
+            if(count == 0)
+                break;
+                
+            time++;
+            
+            int size = q.size();
+            
+            while(size--)
+            {
+                int x = q.front().first;
+                int y = q.front().second;
+                q.pop();
+                
+                for(int k = 0; k < 4; k++)
+                {
+                    int nx = x + dx[k];
+                    int ny = y + dy[k];
+                    
+                    if(nx >= 0 && nx < n && ny >= 0 && ny < m && grid[nx][ny]==1)
+                    {
+                        grid[nx][ny] = 2;
+                        count--;
+                        q.push({nx, ny});
+                    }
+                }
+            }
+        }
+        if(count == 0)
+            return time;
+            
+        else
+            return -1;
+   }
